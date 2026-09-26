@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Янтарный берег — гид по Калининграду | Amber Shore — Kaliningrad guide</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Туристический гид по Калининграду: достопримечательности с картой, планировщик бюджета, конструктор маршрутов, факты и советы. Кёнигсберг, Куршская коса.">
+  <meta name="keywords" content="Калининград, Кёнигсберг, Куршская коса, туристический гид, достопримечательности, янтарь">
+  <meta name="author" content="Amber Shore">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Янтарный берег — гид по Калининграду">
+  <meta property="og:description" content="Карта достопримечательностей, бюджет поездки, конструктор маршрутов — всё для путешествия в Калининград.">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Favicon (янтарь) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 30 12 25 29H7L2 12Z' fill='%23e8a020'/%3E%3C/svg%3E">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#app" data-i18n="skip">К содержанию</a>
+
+  <!-- ================= ШАПКА ================= -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a href="#home" class="brand" data-route="home">
+        <span class="brand__gem" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name" data-i18n="brand">Янтарный берег</span>
+          <span class="brand__sub" data-i18n="brandSub">гид по Калининграду</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Главное меню">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home" data-route="home" data-i18n="nav.home">Главная</a></li>
+          <li><a class="nav__link" href="#about" data-route="about" data-i18n="nav.about">О городе</a></li>
+          <li><a class="nav__link" href="#attractions" data-route="attractions" data-i18n="nav.attractions">Места</a></li>
+          <li><a class="nav__link" href="#budget" data-route="budget" data-i18n="nav.budget">Бюджет</a></li>
+          <li><a class="nav__link" href="#route" data-route="route" data-i18n="nav.route">Маршрут</a></li>
+          <li><a class="nav__link" href="#tools" data-route="tools" data-i18n="nav.tools">Инструменты</a></li>
+          <li><a class="nav__link" href="#reviews" data-route="reviews" data-i18n="nav.reviews">Отзывы</a></li>
+          <li><a class="nav__link" href="#faq" data-route="faq" data-i18n="nav.faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__controls">
+        <div class="lang-switch" role="group" aria-label="RU / EN">
+          <button class="lang-switch__btn" data-lang="ru" aria-label="Русский">RU</button>
+          <button class="lang-switch__btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+          <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= КОНТЕНТ ================= -->
+  <main id="app" class="app container" tabindex="-1">
+    <!-- представления рендерятся из /js/views -->
+  </main>
+
+  <!-- ================= ФУТЕР ================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__col footer__col--wide">
+        <div class="brand brand--footer">
+          <span class="brand__gem" aria-hidden="true"></span>
+          <span class="brand__text">
+            <span class="brand__name" data-i18n="brand">Янтарный берег</span>
+          </span>
+        </div>
+        <p class="footer__note" data-i18n="footAbout"></p>
+        <div class="footer__controls">
+          <div class="lang-switch lang-switch--small" role="group" aria-label="RU / EN">
+            <button class="lang-switch__btn" data-lang="ru">RU</button>
+            <button class="lang-switch__btn" data-lang="en">EN</button>
+          </div>
+          <button class="theme-toggle theme-toggle--small" aria-label="Сменить тему">
+            <span class="theme-toggle__icon" aria-hidden="true">🌙</span>
+          </button>
+        </div>
+      </div>
+      <nav class="footer__col" aria-label="Разделы сайта">
+        <h3 class="footer__title" data-i18n="footSitemap">Разделы</h3>
+        <ul class="footer__links">
+          <li><a href="#attractions" data-route="attractions" data-i18n="nav.attractions"></a></li>
+          <li><a href="#budget" data-route="budget" data-i18n="nav.budget"></a></li>
+          <li><a href="#route" data-route="route" data-i18n="nav.route"></a></li>
+          <li><a href="#tools" data-route="tools" data-i18n="nav.tools"></a></li>
+          <li><a href="#faq" data-route="faq" data-i18n="nav.faq"></a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h3 class="footer__title">Contacts</h3>
+        <ul class="footer__links footer__links--contacts">
+          <li><a href="mailto:hello@ambershore.example">hello@ambershore.example</a></li>
+          <li><a href="#home" data-route="home">ambershore.example</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <small data-i18n="footCopy"></small>
+    </div>
+  </footer>
+
+  <!-- Кнопка «наверх» и модальное окно -->
+  <button class="to-top" id="toTop" aria-label="Наверх" data-i18n-aria="backToTop">↑</button>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__box">
+      <button class="modal__close" data-modal-close aria-label="Закрыть" data-i18n-aria="close">✕</button>
+      <div class="modal__content" id="modalContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Библиотеки -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Данные -->
+  <script src="data/translations.js"></script>
+  <script src="data/attractions.js"></script>
+  <script src="data/content.js"></script>
+
+  <!-- Ядро -->
+  <script src="js/i18n.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/helpers.js"></script>
+  <script src="js/views/home.js"></script>
+  <script src="js/views/about.js"></script>
+  <script src="js/views/attractions.js"></script>
+  <script src="js/views/budget.js"></script>
+  <script src="js/views/route.js"></script>
+  <script src="js/views/tools.js"></script>
+  <script src="js/views/extras.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
